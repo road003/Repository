@@ -1,0 +1,15 @@
+create database project;
+
+use project;
+
+create table employee(
+id int not null auto_increment,
+name varchar(5) not null,
+password varchar(15) not null,
+confirm varchar(10) not null,
+email varchar(20),
+address varchar(50),
+enter date,
+regdate date,
+primary key(id)
+);
