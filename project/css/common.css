@@ -170,9 +170,9 @@ button {
     font-size: 16px;
     display:inline-block;
     width:103px; /* 고정 타입 */
-    height:48px;
+    height:35px;
     text-align: center;    
-    line-height: 37px;
+    line-height: 35px;
     border-radius: 2px;
     background-color:#1a73e8;
     border:1px solid transparent;
@@ -309,7 +309,7 @@ input {
     border-radius: 2px;
     border:1px solid #d5d5d5;
     width:444px;
-    height: 48px;
+    height: 35px;
     font-size:14px;
 }
 
@@ -348,7 +348,7 @@ select {
     border-radius: 2px;
     border:1px solid #d5d5d5;
     width:150px;
-    height:48px;
+    height:35px;
 }
 
 .sel-55 {
