@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupware System</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <link rel="stylesheet" href="css/jquery.treeview.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/board.css">
+
+    <link rel="stylesheet" href="css/menu.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="js/jquery.treeview.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+    <style>
+        tr:first-child {
+            background-color: #F5F5F7;
+        }
+        
+        .tree-wrap {
+            font-size: 14px;
+        }
+
+        .tree-wrap .btn-off {
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap bg-gray">
+        <div class="container">
+
+            <div class="page-main-wrap flex flex-justify border-bottom">
+                <div class="page-left bg-white height40">
+                    <a href="grp_approval_main.html"><h2 class="noto center font24 weight400" style="color: #5f6368;">전자결재시스템</h2></a>
+                </div>
+                <div class="page-right bg-white height40">
+                    <div class="page-info flex flex-justify">
+                        <div class="">
+                            <div class="m-t8">
+                                <form method="POST" action="grp_member_list.html">
+                                    <select class="select-search" name="searchOpt">
+                                        <option value="">사원명</option>
+                                        <option value="">사원번호</option>
+                                    </select>
+                                    <input class="input-search" type="text" name="words" required style="margin-left: -2px;" autocomplete="off"/>
+                                    <button type="submit" class="btn-search" style="margin-left: -2px;" >사원검색</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="logout">
+                                <a href="grp_login.html" class="noto font13 weight700 p-tb10" style="padding-right: 15px;">로그아웃</a>
+                            </div>
+
+                            <div class="pic" style="margin-top: 12px; padding-right: 22px;">
+                                <span class="user">
+                                    <img src="images/9.png" alt="" title="" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-main-wrap flex flex-justify height100">
+                <div class="page-left bg-white p10">
+                    <div class="sidebar-menu-content">
+                        <div class="sidebar-menu">
+                            <ul class="noto">
+                                <li class="top-menu close">
+                                    <a><span>결재하기</span></a>
+                                    <ul>
+                                        <li><a href=""><i class="fas fa-caret-right"></i>결재 대기 문서</a></li>
+                                        <li><a href=""><i class="fas fa-caret-right"></i>결재 문서 상태</a></li>
+                                        <li><a href=""><i class="fas fa-caret-right"></i>참조/열람 대기 문서</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>개인 문서함</span></a>
+                                    <ul>
+                                        <li><a href=""><i class="fas fa-caret-right"></i>발송 문서함</a></li>
+                                        <li><a href=""><i class="fas fa-caret-right"></i>수신 문서함</a></li>
+                                        <li><a href=""><i class="fas fa-caret-right"></i>참조/열람 문서함</a></li>
+                                        <li><a href=""><i class="fas fa-caret-right"></i>임시보관 문서함</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>문서 양식함</span></a>
+                                    <ul>
+                                        <li><a href="grp_board_create.html"><i class="fas fa-caret-right"></i>인사부</a></li>
+                                        <li><a href="grp_board_create.html"><i class="fas fa-caret-right"></i>기타부</a></li>
+                                        <li><a href="grp_board_create.html"><i class="fas fa-caret-right"></i>기타부</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>결재 환경설정</span></a>
+                                    <ul>
+                                        <li><a href="grp_calendar_list.html"><i class="fas fa-caret-right"></i>기본설정</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-right bg-white p10">
+                    <div class="page-main-wrap">
+                        <div class="page-content">
+                            <span>전자결재 메인 페이지</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/treeview.js"></script>
+<script src="js/tab.js"></script>
+<script>
+    $(function () {
+        $("tr:nth-child(2n+1)").addClass("tr-even");
+    })
+</script>
+
+<script>
+    $(function() {
+
+        $(".user-icon").click(function(e) {
+            $(this).siblings(".user-icon-menu").toggle();
+            $(".bell-menu").hide();
+            e.stopPropagation();
+        });
+
+        $(".bell i").click(function(e) {
+            $(this).siblings(".bell-menu").toggle();
+            $(".user-icon-menu").hide();
+            e.stopPropagation();
+        });
+
+        $(".top-menu").children("a").click(function(e) {
+            if ($(this).parent().hasClass("open")) {
+                $(".top-menu").removeClass("open")
+            } else {
+                $(".top-menu").removeClass("open")
+                $(this).parent().addClass("open");
+            }
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        $(document).click(function() {
+            $(".user-icon-menu").hide();
+            $(".bell-menu").hide();
+        });
+    });
+</script>
+
+</html>
