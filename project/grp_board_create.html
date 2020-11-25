@@ -100,8 +100,8 @@
                                 <li class="top-menu close">
                                     <a><span>근태관리</span></a>
                                     <ul>
-                                        <li><a href="grp_attend_info.html"><i class="fas fa-caret-right"></i>내 근태현황</a></li>
-                                        <li><a href="grp_my_info.html"><i class="fas fa-caret-right"></i>내 인사정보</a></li>
+                                        <li><a href="grp_attend_info.html"><i class="fas fa-caret-right"></i>출/퇴 설정</a></li>
+                                        <li><a href="grp_my_info.html"><i class="fas fa-caret-right"></i>휴일 설정</a></li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
@@ -135,6 +135,250 @@
                     <div class="page-main-wrap">
                         <div class="page-content">
                             <span>게시판 생성페이지</span>
+                            <div class="title">
+                                <h3 class="font18 noto m-t20">
+                                    게시판관리 > 1. 게시판생성
+                                </h3>
+                            </div>
+                            <div class="board-maker">
+                                <form method="post" id="frm">
+                                    <table>
+                                        <tr class="center">
+                                            <td class="bg-gray weight700 td-10">게시판그룹</td>
+                                            <td class="td-15 p-lr3">
+                                                <select class="sel-100" name="boardGrp" id="boardGrp">
+                                                </select>
+                                            </td>
+                                            <td class="bg-gray weight700 td-10">게시판코드</td>
+                                            <td class="td-15 p-lr3">
+                                                <input autocomplete="off"onBlur="chkBoardCode();" required name="boardCode" id="boardCode" type="text" class="input-100" placeholder="영어로 입력" />
+                                            </td>
+                                            <td class="bg-gray weight700 td-10">게시판색상</td>
+                                            <td class="td-15 p-lr3">
+                                                <select class="sel-100" name="boardColor" id="boardColor">
+                                                    <option value="#6F809A">#6F809A</option>
+                                                    <option value="#B00020">#B00020</option>
+                                                    <option value="#5D1049">#5D1049</option>
+                                                    <option value="#4A148C">#4A148C</option>
+                                                    <option value="#2962FF">#2962FF</option>
+                                                    <option value="#404E67">#404E67</option>
+                                                    <option value="#FE5E71">#FE5E71</option>
+                                                    <option value="#1A237E">#1A237E</option>
+                                                </select>
+                                                <span class="color"></span>
+                                            </td>
+                                            <td class="bg-gray weight700 td-10">게시판 관리자</td>
+                                            <td class="td-15 p-lr3">
+                                                <input class="sel-100" class="input-100" name="boardMaker" value="" readonly />
+                                            </td>
+                                        </tr>
+                                        <tr class="center">
+                                            <td class="bg-gray weight700 td-10">게시판제목</td>
+                                            <td colspan="5" class="td-90 p-lr3">
+                                                <input autocomplete="off" required="required" type="text" id="boardTitle" name="boardTitle" class="input-100" />
+                                            </td>
+                                            <td class="bg-gray weight700 td-10">게시판타입</td>
+                                            <td class="td-90 p-lr3">
+                                                <select class="sel-100" name="boardType">
+                                                    <option value="1">답변형 게시판</option>
+                                                    <option value="2">공지사항 게시판</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr class="center">
+                                            <td class="bg-gray weight700 td-10">읽기권한</td>
+                                            <td class="td-15 p-lr3">
+                                                <select class="sel-100" name="boardRead">
+                                                    <option value="0">모두</option>
+                                                    <option value="1">직원</option>
+                                                </select>
+                                            </td>
+                                            <td class="bg-gray weight700 td-10">쓰기권한</td>
+                                            <td class="td-15 p-lr3">
+                                                <select class="sel-100" name="boardWrite">
+                                                    <option value="0">모두</option>
+                                                    <option value="1">직원</option>
+                                                </select>
+                                            </td>
+                                            <td class="bg-gray weight700 td-10">댓글권한</td>
+                                            <td class="td-15 p-lr3">
+                                                <select class="sel-100" name="boardReply">
+                                                    <option value="0">모두</option>
+                                                    <option value="1">직원</option>
+                                                </select>
+                                            </td>
+                                            <td class="bg-gray weight700 td-10">다운권한</td>
+                                            <td class="td-15 p-lr3">
+                                                <select class="sel-100" name="boardDownload">
+                                                    <option value="0">모두</option>
+                                                    <option value="1">직원</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="btn-grp center m-t10">
+                                        <button class="btn-on" type="button" id="btn">게시판생성</button>
+                                        <button class="btn-off" type="reset">취소하기</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="title">
+                                <h3 class="font18 noto m-t20">
+                                    게시판관리 > 2. 게시판목록
+                                </h3>
+                            </div>
+                        
+                            <div class="btn-grp flex flex-justify m-tb10">
+                                <div class="">
+                                    <button class="btn-red" id="deleteAll">선택삭제</button>
+                                </div>
+                                <div class="m-t15">
+                                    
+                                </div>
+                                <div>
+                                    <form method="post" action="${pageContext.request.contextPath}/board">
+                                        <select class="" name="searchOpt">
+                                            <option value= "boardCode">--</option>
+                                            <option value= "boardTitle">제목</option>
+                                            <option value= "boardGrp">부서</option>
+                                                                                    
+                                        </select>
+                                        <input type="text" value="" name="words" required style="margin-left: -2px" autocomplete="off"/>
+                                        <button type="submit" class="btn-on center" style="margin-left: -2px">검색</button>
+                                    </form>
+                                </div>
+                            </div>	
+                        
+                            <div class="board-list">
+                                <table>
+                                    <tr class="center tr-color weight700 font14" id="rowColor">
+                                        <td class="td-5">
+                                            <input type="checkbox" onClick="chkAll();" />
+                                        </td>
+                                        <td class="td-10">게시판그룹</td>
+                                        <td class="td-10">게시판코드</td>
+                                        <td class="td-10">게시판색상</td>
+                                        <td>게시판제목</td>
+                                        <td class="td-5">읽기권한</td>
+                                        <td class="td-5">쓰기권한</td>
+                                        <td class="td-5">댓글권한</td>
+                                        <td class="td-5">다운권한</td>
+                                        <td class="td-10">게시판관리</td>
+                                    </tr>
+                                    <c:forEach items="${list}" var="board">
+                                        <tr class="center font14 weight700">
+                                            <td>
+                                                <input type="checkbox" class ="chk"name ="chk" class ="chk" data-uid="${board.boardCode}" />
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <a href="${pageContext.request.contextPath}/article/grp_article_list?boardCode=${board.boardCode}" target="_blank" class="under"></a>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <a href="${pageContext.request.contextPath}/article/grp_article_list?boardCode=${board.boardCode}" target="_blank" class="under"></a>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                <span class="s-btn-on">수정</span>
+                                                <button class="s-btn-off" onClick="boardDel('${board.boardCode}');">삭제</button>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                                <c:if test="${count > 0}">
+									<div class="page-grp center m-t10">
+									<!-- 맨앞으로 -->
+									<c:choose>
+										<c:when test="${curPage >1 }">
+											
+													<a href="${pageContext.request.contextPath}/board?curPage=1 & searchOpt = ${searchOpt} & words = ${words}">
+														<span class="page"> 
+															<i class="fas fa-angle-double-left"></i>
+														</span>
+													</a>
+												
+										</c:when>
+										<c:otherwise>
+											<span class="page"> 
+												<i class="fas fa-angle-double-left"></i>
+											</span>
+										</c:otherwise>
+									</c:choose>
+									<!-- 맨앞으로 -->
+									
+									<!-- 한칸앞으로 -->
+									<c:choose>
+										<c:when test="${curPage >1 }">
+											
+													<a href="${pageContext.request.contextPath}/board?curPage=${curPage -1 } & searchOpt = ${searchOpt} & words = ${words}">
+														<span class="page"> 
+															<i class="fas fa-angle-left"></i>
+														</span>
+													</a>
+												
+										</c:when>
+										<c:otherwise>
+											<span class="page"> 
+												<i class="fas fa-angle-left"></i>
+											</span>
+										</c:otherwise>
+									</c:choose>
+									<!-- 한칸앞으로 -->
+										<!-- 페이지 번호 출력 -->
+										<c:forEach begin="${blockBegin}" end="${blockEnd}" var="num">
+											<!-- 시작 끝 변수명 -->
+											<c:if test="${selected == num }">
+												<a href="" class="f6">
+													<span class="page page-active">1</span>
+												</a>
+											</c:if>
+											<c:if test="${selected != num }">
+												<a href="${pageContext.request.contextPath}/board?curPage=${num} & searchOpt = ${searchOpt} & words = ${words}">
+													<span class="page">2</span>
+												</a>
+											</c:if>
+										</c:forEach>
+										<!-- 페이지 번호 출력 -->
+										
+										<!-- 한칸 뒤로 -->
+										<c:choose>
+										<c:when test="${curPage != totalPage }">
+													<a href="${pageContext.request.contextPath}/board?curPage=${curPage+1} & searchOpt = ${searchOpt} & words = ${words}">
+														<span class="page"> 
+															<i class="fas fa-angle-right"></i>
+														</span>
+													</a>
+										</c:when>
+										<c:otherwise>
+											<span class="page"> 
+												<i class="fas fa-angle-right"></i>
+											</span>
+										</c:otherwise>
+									</c:choose>
+										<!-- 한칸 뒤로 -->
+										<!-- 맨 뒤로 -->
+										<c:choose>
+										<c:when test="${curPage != totalPage }">
+													<a href="${pageContext.request.contextPath}/board?curPage=${totalPage} & searchOpt = ${searchOpt} & words = ${words}">
+														<span class="page"> 
+															<i class="fas fa-angle-double-right"></i>
+														</span>
+													</a>
+										</c:when>
+										<c:otherwise>
+											<span class="page"> 
+												<i class="fas fa-angle-double-right"></i>
+											</span>
+										</c:otherwise>
+									</c:choose>
+										<!-- 맨 뒤로 -->
+									
+									</div>
+								</c:if>
                         </div>
                     </div>
                 </div>

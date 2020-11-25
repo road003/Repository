@@ -150,6 +150,16 @@ body {
     color:#fff;
 }
 
+.btn-bgblue {
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    padding:9.5px 10px; /* 가변 타입 */
+    background-color:#E8F0FE;
+    border-radius: 2px;
+    color:#fff;
+    
+}
+
 .btn-cancel {
     font-family: 'Noto Sans KR', sans-serif;
     display:inline-block;
@@ -185,7 +195,7 @@ button {
     width:75px; /* 고정 타입 */
     height:35px;
     text-align: center;    
-    line-height: 37px;
+    line-height: 35px;
     border-radius: 2px;
     background-color:#1a73e8;
     border:1px solid transparent;
@@ -198,7 +208,7 @@ button {
     width:75px;
     height:35px;
     text-align: center;    
-    line-height: 37px;
+    line-height: 35px;
     border-radius: 2px;
     background-color:#F5F5F7;
     border:1px solid #d4d4d4;
