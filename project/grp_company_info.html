@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/board.css">
 
     <link rel="stylesheet" href="css/menu.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="js/jquery.treeview.js"></script>
@@ -23,13 +23,62 @@
         tr:first-child {
             background-color: #F5F5F7;
         }
-        
+
         .tree-wrap {
             font-size: 14px;
         }
 
         .tree-wrap .btn-off {
             font-size: 12px;
+        }
+    </style>
+    <style>
+        .page-main-left {
+            width: 69.7%;
+            padding: 20px;
+        }
+
+        .page-main-right {
+            width: 29.7%;
+        }
+
+        .main-right-top {
+            height: 260px;
+        }
+
+        .main-right-bottom {
+            height: 220px;
+        }
+
+        .buseo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .buseo-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .attend-btn-on {
+            width: 220px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            background-color: transparent;
+            color: #ccc;
+            padding: 10px 0;
+        }
+
+        .attend-btn-off {
+            width: 220px;
+            border: 1px solid #5ebfd9;
+            border-radius: 50px;
+            background-color: transparent;
+            color: #5ebfd9;
+            padding: 10px 0;
         }
     </style>
 </head>
@@ -40,7 +89,9 @@
 
             <div class="page-main-wrap flex flex-justify border-bottom">
                 <div class="page-left bg-white height40">
-                    <a href="grp_main.html"><h2 class="noto center font24 weight400" style="color: #5f6368;">관리자페이지</h2></a>
+                    <a href="grp_main.html">
+                        <h2 class="noto center font24 weight400" style="color: #5f6368;">관리자페이지</h2>
+                    </a>
                 </div>
                 <div class="page-right bg-white height40">
                     <div class="page-info flex flex-justify">
@@ -49,10 +100,11 @@
                                 <span>asdf</span>
                             </div>
                         </div>
-                        
+
                         <div class="flex">
                             <div class="logout">
-                                <a href="grp_login.html" class="noto font13 weight700 p-tb10" style="padding-right: 15px;">로그아웃</a>
+                                <a href="grp_login.html" class="noto font13 weight700 p-tb10"
+                                    style="padding-right: 15px;">로그아웃</a>
                             </div>
 
                             <div class="pic" style="margin-top: 12px; padding-right: 22px;">
@@ -73,57 +125,71 @@
                                 <li class="top-menu close">
                                     <a><span>사내조직/연락처</span></a>
                                     <ul>
-                                        <li><a href="grp_member_list.html"><i class="fas fa-caret-right"></i>사원목록</a></li>
-                                        <li><a href="grp_member_register.html"><i class="fas fa-caret-right"></i>사원등록</a></li>
-                                        <li><a href="grp_member_chart.html"><i class="fas fa-caret-right"></i>조직도</a></li>
-                                        <li><a href="grp_member_chart_register.html"><i class="fas fa-caret-right"></i>조직도 등록</a></li>
+                                        <li><a href="grp_member_list.html"><i class="fas fa-caret-right"></i>사원목록</a>
+                                        </li>
+                                        <li><a href="grp_member_register.html"><i
+                                                    class="fas fa-caret-right"></i>사원등록</a></li>
+                                        <li><a href="grp_member_chart.html"><i class="fas fa-caret-right"></i>조직도</a>
+                                        </li>
+                                        <li><a href="grp_member_chart_register.html"><i
+                                                    class="fas fa-caret-right"></i>조직도 등록</a></li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
                                     <a><span>전자결제</span></a>
                                     <ul>
-                                        <li><a href="grp_approval_main.html" target="_blank"><i class="fas fa-caret-right"></i>전자결재 문서등록</a></li>
+                                        <li><a href="grp_approval_main.html" target="_blank"><i
+                                                    class="fas fa-caret-right"></i>전자결재 문서등록</a></li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
                                     <a><span>게시판관리</span></a>
                                     <ul>
-                                        <li><a href="grp_board_create.html"><i class="fas fa-caret-right"></i>게시판 생성</a></li>
+                                        <li><a href="grp_board_create.html"><i class="fas fa-caret-right"></i>게시판 생성</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
                                     <a><span>일정관리</span></a>
                                     <ul>
-                                        <li><a href="grp_calendar_list.html"><i class="fas fa-caret-right"></i>일정목록</a></li>
+                                        <li><a href="grp_calendar_list.html"><i class="fas fa-caret-right"></i>일정목록</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
                                     <a><span>근태관리</span></a>
                                     <ul>
-                                        <li><a href="grp_attend_info.html"><i class="fas fa-caret-right"></i>근무일 설정</a></li>
+                                        <li><a href="grp_attend_info.html"><i class="fas fa-caret-right"></i>근무일 설정</a>
+                                        </li>
                                         <li><a href="grp_my_info.html"><i class="fas fa-caret-right"></i>출퇴근 설정</a></li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
                                     <a><span>설문조사</span></a>
                                     <ul>
-                                        <li><a href="grp_survey_open.html"><i class="fas fa-caret-right"></i>진행중인 설문</a></li>
-                                        <li><a href="grp_survey_close.html"><i class="fas fa-caret-right"></i>종료된 설문</a></li>
+                                        <li><a href="grp_survey_open.html"><i class="fas fa-caret-right"></i>진행중인 설문</a>
+                                        </li>
+                                        <li><a href="grp_survey_close.html"><i class="fas fa-caret-right"></i>종료된 설문</a>
+                                        </li>
                                         <li><a href="#"><i class="fas fa-caret-right"></i>내가 만든 설문</a></li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
                                     <a><span>자료실</span></a>
                                     <ul>
-                                        <li><a href="grp_file_upload.html"><i class="fas fa-caret-right"></i>문서양식</a></li>
-                                        <li><a href="grp_file_upload.html"><i class="fas fa-caret-right"></i>제품소개서</a></li>
+                                        <li><a href="grp_file_upload.html"><i class="fas fa-caret-right"></i>문서양식</a>
+                                        </li>
+                                        <li><a href="grp_file_upload.html"><i class="fas fa-caret-right"></i>제품소개서</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="top-menu open">
                                     <a><span>회사기본정보</span></a>
                                     <ul>
-                                        <li class="menu-on" ><a href="grp_company_info.html"><i class="fas fa-caret-right"></i>회사기본정보</a></li>
-                                        <li><a href="grp_company_info_register.html"><i class="fas fa-caret-right"></i>제품소개서</a></li>
+                                        <li class="menu-on"><a href="grp_company_info.html"><i
+                                                    class="fas fa-caret-right"></i>회사기본정보</a></li>
+                                        <li><a href="grp_company_info_register.html"><i
+                                                    class="fas fa-caret-right"></i>제품소개서</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -134,7 +200,93 @@
                 <div class="page-right bg-white p10">
                     <div class="page-main-wrap">
                         <div class="page-content">
-                            <span>회사기본정보 페이지</span>
+
+                            <div class="title">
+                                <h3 class="font18 noto m-t20">
+                                    회사기본정보 > 1. 회사기본정보
+                                </h3>
+                            </div>
+                            <div class="">
+                                <form id="frm" method="post"
+                                    action="${pageContext.request.contextPath}/company/grp_company">
+                                    <table>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">로고 타이틀</td>
+                                            <td class="p-lr3"><input type="text" name="comName" id="comName"
+                                                    maxlength="100" class="input-100" required>
+                                            </td>
+                                            <td class="bg-gray weight700 td-10 center">로고 서브타이틀</td>
+                                            <td><input type="text" name="comSubName" id="comSubName" maxlength="100"
+                                                    class="input-100" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">웹사이트 로고 타이틀</td>
+                                            <td class="p-lr3" colspan="3"><input type="text"
+                                                    placeholder="GREEN COMPUTER" name="comWebName" id="comWebName"
+                                                    maxlength="100" class="input-100" required></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">대표명</td>
+                                            <td class="p-lr3"><input type="text" name="comCeo" id="comCeo"
+                                                    maxlength="10" class="input-100" required>
+                                            </td>
+                                            <td class="bg-gray weight700 td-10 center">대표전화</td>
+                                            <td><input type="text" name="comTel" id="comTel" maxlength="15"
+                                                    class="input-100" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">웹사이트 URL</td>
+                                            <td class="p-lr3" colspan="3"><input type="text" name="comUrl" id="comUrl"
+                                                    maxlength="50" class="input-100" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">웹사이트 Copyright</td>
+                                            <td class="p-lr3" colspan="3"><input type="text" name="comCopy" id="comCopy"
+                                                    maxlength="200" class="input-100" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">웹사이트 접근권한</td>
+                                            <td class="p-lr3" colspan="3"><select name="comAuth" id="comAuth" required>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">웹사이트 메뉴</td>
+                                            <td class="p-lr3" colspan="3"><input type="text"
+                                                    placeholder="메뉴는 세미콜론(;)으로 구분" name="comMenu" id="comMenu"
+                                                    maxlength="200" class="input-100" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">웹사이트 메인 텍스 상단</td>
+                                            <td class="p-lr3" colspan="3"><input type="text"
+                                                    placeholder="새로운 플랫폼을 제시합니다." name="comMainUp" id="comMainUp"
+                                                    maxlength="200" class="input-100" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-gray weight700 td-10 center">웹사이트 메인 텍스 하단</td>
+                                            <td class="p-lr3" colspan="3"><input type="text"
+                                                    placeholder="TOTAL INSTRUCTION PLATFORM" name="comMainDown"
+                                                    id="comMainDown" maxlength="200" class="input-100" required>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="btn-grp center m-t10">
+                                        <button type="submit" class="btn-on">수정</button>
+                                        <button type="reset" class="btn-off">새로고침</button>
+                                    </div>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -151,21 +303,21 @@
 </script>
 
 <script>
-    $(function() {
+    $(function () {
 
-        $(".user-icon").click(function(e) {
+        $(".user-icon").click(function (e) {
             $(this).siblings(".user-icon-menu").toggle();
             $(".bell-menu").hide();
             e.stopPropagation();
         });
 
-        $(".bell i").click(function(e) {
+        $(".bell i").click(function (e) {
             $(this).siblings(".bell-menu").toggle();
             $(".user-icon-menu").hide();
             e.stopPropagation();
         });
 
-        $(".top-menu").children("a").click(function(e) {
+        $(".top-menu").children("a").click(function (e) {
             if ($(this).parent().hasClass("open")) {
                 $(".top-menu").removeClass("open")
             } else {
@@ -176,7 +328,7 @@
             e.stopPropagation();
         });
 
-        $(document).click(function() {
+        $(document).click(function () {
             $(".user-icon-menu").hide();
             $(".bell-menu").hide();
         });
