@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/board.css">
 
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/zTreeStyle.css">
+
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -31,10 +33,95 @@
         .tree-wrap .btn-off {
             font-size: 12px;
         }
+        .modal-wrapper{
+            z-index: 9998;
+            background-color:rgba(0,0,0,.3);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top:0;
+            left:0;
+            visibility: hidden;
+            opacity:0;
+            transition: .3s;
+        }
+
+        .modal-wrapper.open{
+            visibility: visible;
+            opacity: 1;
+            transition: .3s;
+        }
+
+        .modal-wrapper.open .modal{
+            opacity: 1;
+        }
+
+        .modal {
+            width: 700px;
+            height: 600px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            background-color:#fff;
+            opacity:0;
+            border-radius: 5px;
+            padding:20px;
+            box-shadow: -60px 0px 100px -80px #000,
+                        60px 0px 100px -80px #000;;
+        }
     </style>
+    <script>
+        $(function(){
+            $(".popup").click(function(){
+                $(".modal-wrapper").toggleClass("open");
+            });
+        });
+    </script>
+    
 </head>
 
 <body>
+    <div class="modal-wrapper"><!-- 바깥은 화면 전체 크기 -->
+        <div class="modal"> <!-- 실제 모달크기-->
+                
+                <div class="">
+                    <form>
+                    <table>
+                        <tr>
+                            <td class="center"colspan="2">일정 등록</td>
+                            
+                        </tr>
+                        <tr class="weight700 center tr-color" style="height: 40px;">
+                            <td class="td-5">일정명</td>
+                            <td class="td-20"> <input/></td>
+                        </tr>
+                        <tr class="center font14" style="height: 60px;">
+                            <td class="td-5">적용년도</td>
+                            <td class="td-20"> <input/></td>
+                        </tr>
+                        <tr class="center font14" style="height: 60px;">
+                            <td class="td-5">날짜</td>
+                            <td class="td-20">
+                                <select>
+                                    <option value="">1월</option>
+                                    <option value="">2월</option>
+                                </select>
+                                <select>
+                                    <option value="">1일</option>
+                                    <option value="">2일</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                </div>
+                <div class="modal-bottom center m-t10">
+                    <button class="btn-on">저장</button>
+                    <button class="btn-off popup btn-close">닫기</button>
+                </div> 
+        </div>
+    </div>
     <div class="page-wrap bg-gray">
         <div class="container">
 
@@ -91,13 +178,12 @@
                                         <li><a href="grp_board_create.html"><i class="fas fa-caret-right"></i>게시판 생성</a></li>
                                     </ul>
                                 </li>
-                                
                                 <li class="top-menu open">
                                     <a><span>근태관리</span></a>
                                     <ul>
-                                            <li><a href="grp_commute_set.html"><i class="fas fa-caret-right"></i>출퇴근 설정</a></li>
-                                            <li class="menu-on"><a href="grp_attend_info.html"><i class="fas fa-caret-right"></i>근무일 설정</a></li>
-                                            <li><a href="grp_calendar_set.html"><i class="fas fa-caret-right"></i>일정목록</a></li>
+                                        <li><a href="grp_commute_set.html"><i class="fas fa-caret-right"></i>출퇴근 설정</a></li>
+                                        <li><a href="grp_attend_info.html"><i class="fas fa-caret-right"></i>근무일 설정</a></li>
+                                        <li class="menu-on"><a href="grp_calendar_set.html"><i class="fas fa-caret-right"></i>일정목록</a></li>
                                     </ul>
                                 </li>
                                 <li class="top-menu close">
@@ -130,7 +216,34 @@
                 <div class="page-right bg-white p10">
                     <div class="page-main-wrap">
                         <div class="page-content">
-                            <span>내 근태현황 페이지</span>
+                            <span>일정관리 페이지</span>
+                            <table>
+                                <tr class="weight700 center tr-color" style="height: 40px;">
+                                    <td class="td-5">No</td>
+                                    <td class="td-10">년도</td>
+                                    <td class="td-5">날짜</td>
+                                    <td class="td-10">공휴일명</td>
+                                    <td class="td-5">상태</td>
+                                </tr>
+                                <tr class="center font14" style="height: 60px;">
+                                    <td>2</td>
+                                    <td>프로젝트</td>
+                                    <td>1월1일</td>
+                                    <td>신정</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="center font14" style="height: 60px;">
+                                    <td>1</td>
+                                    <td>프로젝트</td>
+                                    <td>3월1일</td>
+                                    <td>삼일절</td>
+                                    <td>사용</td>
+                                </tr>
+                            </table>
+                            <button class="popup">
+                                등록
+                            </button>
+
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupware System</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <link rel="stylesheet" href="css/jquery.treeview.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/board.css">
+
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/zTreeStyle.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="js/jquery.treeview.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+    <style>
+        tr:first-child {
+            background-color: #F5F5F7;
+        }
+        tr{
+           line-height: center;
+        }
+        td{
+            line-height: center;
+        }
+        tr span{
+            line-height: center;
+        }
+        td span{
+            line-height: center;
+        }
+        
+        .tree-wrap {
+            font-size: 14px;
+        }
+
+        .tree-wrap .btn-off {
+            font-size: 12px;
+        }
+
+        .emerge{
+            background-color: #d92550;
+            color:#fff;
+            padding:4px 8px;
+            border-radius: 2px;
+        }
+
+        /* modal css*/
+        .modal-wrapper{
+            z-index: 9998;
+            background-color:rgba(0,0,0,.3);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top:0;
+            left:0;
+            visibility: hidden;
+            opacity:0;
+            transition: .3s;
+        }
+
+        .modal-wrapper.open{
+            visibility: visible;
+            opacity: 1;
+            transition: .3s;
+        }
+
+        .modal-wrapper.open .modal{
+            opacity: 1;
+        }
+
+        .modal {
+            width: 700px;
+            height: 600px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            background-color:#fff;
+            opacity:0;
+            border-radius: 5px;
+            padding:20px;
+            box-shadow: -60px 0px 100px -80px #000,
+                        60px 0px 100px -80px #000;;
+        }
+
+
+        /* modal css*/
+
+
+        .popup-box {
+            cursor: pointer;
+            margin-top : 20px;
+            width: 98%;
+            height: 100px;
+            
+        }
+        .reference_box{
+            width: 98%;
+            margin-top : 100px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".popup").click(function(){
+                $(".modal-wrapper").toggleClass("open");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="modal-wrapper"><!-- 바깥은 화면 전체 크기 -->
+        <div class="modal"> <!-- 실제 모달크기-->
+                <span class="">
+                    근태관리 설정
+                </span>
+                <div class="">
+                    <form method="POST" action="grp_member_list.html">
+                    <table>
+                        <tr>
+                            <td>
+                                법인명
+                            </td>
+                            <td>프로잭트</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>출퇴근시간 설정</td>
+                            <td>
+                                <span>출근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select>
+                                <span>퇴근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">18:00</option>
+                                        <option value="">19:00</option>
+                                    </select>
+                                <input type="checkbox" /> <span>모든 요일에 적용</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>월요일</td>
+                            <td>
+                                <span>출근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select>
+                                <span>퇴근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">18:00</option>
+                                        <option value="">19:00</option>
+                                    </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>화요일</td>
+                            <td>
+                                <span>출근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select>
+                                <span>퇴근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">18:00</option>
+                                        <option value="">19:00</option>
+                                    </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>수요일</td>
+                            <td>
+                                <span>출근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select>
+                                <span>퇴근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">18:00</option>
+                                        <option value="">19:00</option>
+                                    </select>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>목요일</td>
+                            <td>
+                                <span>출근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select>
+                                <span>퇴근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">18:00</option>
+                                        <option value="">19:00</option>
+                                    </select>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>금요일</td>
+                            <td>
+                                <span>출근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select>
+                                <span>퇴근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">18:00</option>
+                                        <option value="">19:00</option>
+                                    </select>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>토요일</td>
+                            <td>
+                                <span>출근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select>
+                                <span>퇴근시간 : </span>
+                                    <select class="" name="">
+                                        <option value="">18:00</option>
+                                        <option value="">19:00</option>
+                                    </select>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>철야 퇴근시간</td>
+                            <td>
+                                    <select class="" name="">
+                                        <option value="">09:00</option>
+                                        <option value="">10:00</option>
+                                    </select></br>
+                                    <span class="">설정된 철야퇴근시간 전에 퇴근체크할 경우 전일 퇴근으로 처리됩니다.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>출퇴근 시간 체크</td>
+                            <td>
+                                    <select class="" name="">
+                                        <option value="">없음</option>
+                                        <option value="">비콘</option>
+                                        <option value="">지문</option>
+                                        <option value="">그룹웨어</option>
+                                        <option value="">메신저</option>
+                                    </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>소정외근로시간 기준</td>
+                            <td>
+                                    <select class="" name="">
+                                        <option value="">수동</option>
+                                        <option value="">자동</option>
+                                    </select>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                </div>
+                <div class="modal-bottom center m-t10">
+                    <button class="btn-on">저장</button>
+                    <button class="btn-off popup btn-close">닫기</button>
+                </div> 
+        </div>
+    </div>
+    <div class="page-wrap bg-gray">
+        <div class="container">
+
+            <div class="page-main-wrap flex flex-justify border-bottom">
+                <div class="page-left bg-white height40">
+                    <a href="grp_main.html"><h2 class="noto center font24 weight400" style="color: #5f6368;">관리자페이지</h2></a>
+                </div>
+                <div class="page-right bg-white height40">
+                    <div class="page-info flex flex-justify">
+                        <div class="">
+                            <div class="m-t8">
+                                <span>asdf</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="logout">
+                                <a href="grp_login.html" class="noto font13 weight700 p-tb10" style="padding-right: 15px;">로그아웃</a>
+                            </div>
+
+                            <div class="pic" style="margin-top: 12px; padding-right: 22px;">
+                                <span class="user">
+                                    <img src="images/9.png" alt="" title="" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-main-wrap flex flex-justify height100">
+                <div class="page-left bg-white p10">
+                    <div class="sidebar-menu-content">
+                        <div class="sidebar-menu">
+                            <ul class="noto">
+                                <li class="top-menu close">
+                                    <a><span>사내조직/연락처</span></a>
+                                    <ul>
+                                        <li><a href="grp_member_list.html"><i class="fas fa-caret-right"></i>사원목록</a></li>
+                                        <li><a href="grp_member_register.html"><i class="fas fa-caret-right"></i>사원등록</a></li>
+                                        <li><a href="grp_member_chart.html"><i class="fas fa-caret-right"></i>조직도</a></li>
+                                        <li><a href="grp_member_chart_register.html"><i class="fas fa-caret-right"></i>조직도 등록</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>전자결제</span></a>
+                                    <ul>
+                                        <li><a href="grp_approval_main.html" target="_blank"><i class="fas fa-caret-right"></i>전자결재 문서등록</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>게시판관리</span></a>
+                                    <ul>
+                                        <li><a href="grp_board_create.html"><i class="fas fa-caret-right"></i>게시판 생성</a></li>
+                                    </ul>
+                                </li>
+                            
+                                <li class="top-menu open">
+                                    <a><span>근태관리</span></a>
+                                    <ul>
+                                        <li class="menu-on"><a href="grp_commute_set.html"><i class="fas fa-caret-right"></i>출퇴근 설정</a></li>
+                                        <li><a href="grp_attend_info.html"><i class="fas fa-caret-right"></i>근무일 설정</a></li>
+                                        <li><a href="grp_calendar_set.html"><i class="fas fa-caret-right"></i>일정목록</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>설문조사</span></a>
+                                    <ul>
+                                        <li><a href="grp_survey_open.html"><i class="fas fa-caret-right"></i>진행중인 설문</a></li>
+                                        <li><a href="grp_survey_close.html"><i class="fas fa-caret-right"></i>종료된 설문</a></li>
+                                        <li><a href="#"><i class="fas fa-caret-right"></i>내가 만든 설문</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>자료실</span></a>
+                                    <ul>
+                                        <li><a href="grp_file_upload.html"><i class="fas fa-caret-right"></i>문서양식</a></li>
+                                        <li><a href="grp_file_upload.html"><i class="fas fa-caret-right"></i>제품소개서</a></li>
+                                    </ul>
+                                </li>
+                                <li class="top-menu close">
+                                    <a><span>회사기본정보</span></a>
+                                    <ul>
+                                        <li><a href="grp_company_info.html"><i class="fas fa-caret-right"></i>회사기본정보</a></li>
+                                        <li><a href="grp_company_info_register.html"><i class="fas fa-caret-right"></i>제품소개서</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-right bg-white p10">
+                    <div class="page-main-wrap">
+                        <div class="page-content">
+                            <div class="popup-box popup">
+                                <table>
+                                    <tr class="weight700 center tr-color" style="height: 40px;">
+                                        <td class="td-5">No</td>
+                                        <td class="td-10">법인명</td>
+                                        <td class="td-5">월요일</td>
+                                        <td class="td-5">화요일</td>
+                                        <td class="td-5">수요일</td>
+                                        <td class="td-5">목요일</td>
+                                        <td class="td-5">금요일</td>
+                                        <td class="td-5">토요일</td>
+                                        <td class="td-5">일요일</td>
+                                        <td class="td-10">출퇴시간 체크</td>
+                                        <td class="td-10">근로시간 체크</td>
+                                        <td class="td-20">소정외근로시간 기준</td>
+                                    </tr>
+                                    <tr class="center font14" style="height: 60px;">
+                                        <td>1</td>
+                                        <td>프로젝트</td>
+                                        <td><span>출근 09:00</span></br><span>퇴근 18:00</span></td>
+                                        <td><span>출근 09:00</span></br><span>퇴근 18:00</span></td>
+                                        <td><span>출근 09:00</span></br><span>퇴근 18:00</span></td>
+                                        <td><span>출근 09:00</span></br><span>퇴근 18:00</span></td>
+                                        <td><span>출근 09:00</span></br><span>퇴근 18:00</span></td>
+                                        <td><span>출근 09:00</span></br><span>퇴근 13:00</span></td>
+                                        <td><span>휴무</span></td>
+                                        <td>사이트</td>
+                                        <td>출.퇴근시간과 동일</td>
+                                        <td>수동</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="reference_box">
+                                <table class="refer">
+                                    <tr>
+                                        <td class="center">참조</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 20px;">
+                                            <span>
+                                                -  조퇴 및 결근 기준시간은 정오(12:00)입니다.</br>
+                                                -  출근시간은 09시, 퇴근 시간은 18시로 기본 설정되며 원하는 시간대로 변경할 수 있습니다(출근시간은 06시 ~ 12시, 퇴근시간은 13시 ~ 00시에서만 변경 가능)</br>
+                                                -  ‘모든요일에 적용’ 설정 시, 선택한 출퇴근 시간이 모든 요일에 적용됩니다(해제 시 요일별로 출퇴근시간 설정 가능).</br>
+                                                -  출퇴근시간은 출입통제시스템 인식 시간, 그룹웨어에서 체크한 시간, 메신저 로그인/로그아웃 시간 중 선택해서 지정할 수 있습니다.</br>
+                                                -  ‘출근체크알림’ 설정 시, 메신저를 통해 출근체크 알림 서비스가 제공됩니다.</br>
+                                                -  근로시간(= 소정근로시간)은 ‘출퇴근시간과 동일하게 처리’되도록 기본 설정되며, 메신저에 접속된 시간을 기준으로도 체크가 가능합니다.</br>
+                                                -  소정외근로시간(근로기준법 기준 ‘연장근로시간’에 해당) 기준: 자동) 설정한 근로시간 외 시간은 자동 합산, 수동) 시간외근무신청서 승인 건만 인정(단, 소정근로시간 40시간 이상부터는 자동으로 소정외근로시간으로 처리)</br>
+                                                -  변경된 설정 사항은 익일부터 반영됩니다.</br>
+
+
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/treeview.js"></script>
+<script src="js/tab.js"></script>
+<script>
+    $(function () {
+        $("tr:nth-child(2n+1)").addClass("tr-even");
+    })
+</script>
+
+<script>
+    $(function() {
+
+        $(".user-icon").click(function(e) {
+            $(this).siblings(".user-icon-menu").toggle();
+            $(".bell-menu").hide();
+            e.stopPropagation();
+        });
+
+        $(".bell i").click(function(e) {
+            $(this).siblings(".bell-menu").toggle();
+            $(".user-icon-menu").hide();
+            e.stopPropagation();
+        });
+
+        $(".top-menu").children("a").click(function(e) {
+            if ($(this).parent().hasClass("open")) {
+                $(".top-menu").removeClass("open")
+            } else {
+                $(".top-menu").removeClass("open")
+                $(this).parent().addClass("open");
+            }
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        $(document).click(function() {
+            $(".user-icon-menu").hide();
+            $(".bell-menu").hide();
+        });
+    });
+</script>
+
+</html>
