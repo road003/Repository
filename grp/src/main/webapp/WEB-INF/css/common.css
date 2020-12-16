@@ -1,0 +1,593 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:12px;
+    overflow: hidden;
+}
+
+/* font */
+.noto {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.pop {
+    font-family: 'Poppins', sans-serif;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* font size */
+.font10 {
+    font-size:12px;
+}
+
+.font12 {
+    font-size:12px;
+}
+
+.font13 {
+    font-size:13px;
+}
+
+.font14 {
+    font-size:14px;
+}
+
+.font16 {
+    font-size:16px;
+}
+
+.font18 {
+    font-size:18px;
+}
+
+.font20 {
+    font-size:20px;
+}
+
+.font22 {
+    font-size:22px;
+}
+
+.font24 {
+    font-size:24px;
+}
+
+/* font color */
+.f6 {
+    color:#fff;
+}
+
+.gray {
+    color:#555;
+}
+
+.red {
+    color: #EA4335;
+}
+
+.green {
+    color: #34A853;
+}
+
+.tomato {
+    color:tomato;
+}
+
+/* font weight */
+.weight100 {
+    font-weight: 100;
+}
+
+.weight200 {
+    font-weight: 200;
+}
+
+.weight300 {
+    font-weight: 300;
+}
+
+.weight400 {
+    font-weight: 400;
+}
+
+.weight500 {
+    font-weight: 500;
+}
+
+.weight600 {
+    font-weight: 600;
+}
+
+.weight700 {
+    font-weight: 700;
+}
+
+.weight800 {
+    font-weight: 800;
+}
+
+.weight900 {
+    font-weight: 900;
+}
+
+/* bgcolor */
+.bg-white {
+    background-color:#fff;
+}
+
+.bg-gray {
+    background-color:#F5F5F7;
+}
+
+.bg-tomato {
+    background-color: tomato;
+}
+
+/* button 156 1526 */
+
+.btn-red {
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    padding:9.5px 10px; /* 가변 타입 */
+    background-color:#EA4335;
+    border-radius: 2px;
+    color:#fff;
+}
+
+.btn-normal {
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    padding:9.5px 10px; /* 가변 타입 */
+    background-color:#1a73e8;
+    border-radius: 2px;
+    color:#fff;
+}
+
+.btn-bgblue {
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    padding:9.5px 10px; /* 가변 타입 */
+    background-color:#E8F0FE;
+    border-radius: 2px;
+    color:#fff;
+    
+}
+
+.btn-cancel {
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    padding:9.5px 10px; /* 가변 타입 */
+    background-color:#F5F5F7;
+    border-radius: 2px;
+    color:#000;
+}
+
+
+button {
+    cursor: pointer;
+    font-size:12px;
+}
+
+.btn-search { /* 활성화 */
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    display:inline-block;
+    width:103px; /* 고정 타입 */
+    height:35px;
+    text-align: center;    
+    line-height: 35px;
+    border-radius: 2px;
+    background-color:#1a73e8;
+    border:1px solid transparent;
+    color:#fff;
+}
+
+.btn-on { /* 활성화 */
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    width:75px; /* 고정 타입 */
+    height:35px;
+    text-align: center;    
+    line-height: 35px;
+    border-radius: 2px;
+    background-color:#1a73e8;
+    border:1px solid transparent;
+    color:#fff;
+}
+
+.btn-off { /* 비활성화 */
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    width:75px;
+    height:35px;
+    text-align: center;    
+    line-height: 35px;
+    border-radius: 2px;
+    background-color:#F5F5F7;
+    border:1px solid #d4d4d4;
+    color:#000;
+}
+
+.s-btn-on { /* 활성화 */
+    font-family: 'Noto Sans KR', sans-serif;
+    display:inline-block;
+    width:35px;
+    height:25px;
+    text-align: center;    
+    line-height: 25px;
+    border-radius: 2px;
+    background-color:#1a73e8;
+    border:1px solid transparent;
+    color:#fff;
+    font-size:12px;
+}
+
+.s-btn-off { /* 비활성화 */
+    font-family: 'Noto Sans KR', sans-serif;    
+    display:inline-block;
+    width:35px;
+    height:25px;
+    text-align: center;    
+    line-height: 25px;
+    border-radius: 2px;
+    background-color:#F5F5F7;
+    border:1px solid #d4d4d4;
+    color:#000;
+    font-size:12px;
+}
+
+/* flex */
+.flex {
+    display:flex;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.flex-justify {
+    justify-content: space-between;
+}
+
+/* float */
+.float-l {
+    float:left;
+}
+
+.float-r {
+    float:right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+/* input */
+
+.input-65 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:65px;
+    height:35px;
+    font-size:12px;
+}
+
+.input-75 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:75px;
+    height:35px;
+    font-size:12px;
+}
+
+.input-135 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:135px;
+    height:35px;
+    font-size:12px;
+}
+
+input {
+    font-family: 'Noto Sans KR', sans-serif;
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:150px;
+    height: 35px;
+    font-size:12px;
+}
+
+.input-search {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:444px;
+    height: 35px;
+    font-size:14px;
+}
+
+.input-100 {
+    padding:5px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:100%;
+    height:35px;
+    font-size:12px;
+}
+
+/* select */
+.sel-attend {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:65px;
+    height:30px;
+}
+
+
+select {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:150px;
+    height:35px;
+}
+
+.select-search {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:16px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:150px;
+    height:35px;
+}
+
+.sel-55 {
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:55px;
+    height:35px;
+}
+
+.sel-135 {
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:135px;
+    height:35px;
+}
+
+.sel-100 {
+    font-size:12px;
+    border-radius: 2px;
+    border:1px solid #d5d5d5;
+    width:100%;
+    height:35px;
+}
+
+/* margin : 개체 개체 사이를 띄울 때*/
+.m-t5 {
+    margin-top:5px;
+}
+
+.m-t7 {
+    margin-top:7px;
+}
+
+.m-t8 {
+    margin-top:8px;
+}
+
+.m-t9 {
+    margin-top:9px;
+}
+
+.m-t10 {
+    margin-top:10px;
+}
+
+.m-t11 {
+    margin-top:11px;
+}
+
+.m-t12 {
+    margin-top:12px;
+}
+
+.m-t13 {
+    margin-top:13px;
+}
+
+.m-t14 {
+    margin-top:14px;
+}
+
+.m-t15 {
+    margin-top:15px;
+}
+
+.m-t16 {
+    margin-top:16px;
+}
+
+.m-t20 {
+    margin-top:20px;
+}
+
+.m-t30 {
+    margin-top:30px;
+}
+
+.m-t40 {
+    margin-top:40px;
+}
+
+.m-b5 {
+    margin-bottom:5px;
+}
+
+.m-b10 {
+    margin-bottom:10px;
+}
+
+.m-b15 {
+    margin-bottom:15px;
+}
+
+.m-b20 {
+    margin-bottom:20px;
+}
+
+.m-tb10 {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.m-tb20 {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.m-tb30 {
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.m-lr10 {
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.m-lr20 {
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.m-lr30 {
+    margin-left:30px;
+    margin-right:30px;
+}
+
+/* padding 개체 자신의 두께를 크게 만들어 띄울 때*/
+.p-tb10 {
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.p-tb20 {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.p-lr3 {
+    padding-left:3px;
+    padding-right:3px;    
+}
+
+.p-lr10 {
+    padding-left:10px;
+    padding-right:10px;    
+}
+
+.p-lr20 {
+    padding-left:20px;
+    padding-right:20px;    
+}
+
+.p10 {
+    padding-top:10px;
+    padding-right:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+}
+
+.p20 {
+    padding-top:20px;
+    padding-right:20px;
+    padding-bottom:20px;
+    padding-left:20px;
+}
+
+.p30 {
+    padding-top:30px;
+    padding-right:30px;
+    padding-bottom:30px;
+    padding-left:30px;
+}
+
+/* align */
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+/* underline */
+.under {
+    text-decoration: underline;
+}
+
+/* paging design */
+.page {
+    display: inline-block;
+    width:35px;
+    height:35px;
+    text-align: center;
+    line-height: 35px;
+    /* border:1px solid #ddd; */
+    font-size:14px;
+    cursor: pointer;
+}
+
+.page-active {
+    background-color:#1a73e8;
+    border-radius: 2px;
+    border: 1px solid transparent;
+}
+
+/* border */
+.border {
+    border: 1px solid rgb(218, 220, 224);
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgb(218, 220, 224);
+}
+
+.border-right {
+    border-right: 1px solid rgb(218, 220, 224);
+}
+
+.border-left {
+    border-left: 1px solid rgb(218, 220, 224);
+}
+
+.border-top {
+    border-top: 1px solid rgb(218, 220, 224);
+}

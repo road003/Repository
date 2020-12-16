@@ -1,0 +1,43 @@
+@charset 'utf-8';
+
+.page-left {
+    width:14.17%;
+}
+
+.page-right {
+    width:85.83%;
+}
+
+.height40 {
+    height:64px;
+    line-height: 64px;
+    padding:0 8px;
+}
+
+.height100 {
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+a.active {
+    background-color:#1a73e8;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.tab {
+    width:50%;
+    height:35px;
+    float:left;
+    border:1px solid #e7e7e7;
+    text-align: center;
+    line-height: 35px;
+    background-color:#fff;
+}
+
+.pic .user img {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
