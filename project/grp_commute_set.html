@@ -113,7 +113,9 @@
                 $(".modal-wrapper").toggleClass("open");
             });
         });
+        
     </script>
+    
 </head>
 
 <body>
@@ -121,8 +123,8 @@
         <div class="modal"> <!-- 실제 모달크기-->
                 
                 <div class="">
-                    <form method="POST" action="grp_member_list.html">
-                    <table>
+                    <form method="POST" action="#">
+                    <table class=""style="line-height: 35px;">
                         <tr>
                             <td colspan="2">
                                 <span class="">
@@ -144,19 +146,19 @@
                                         <option value="">18:00</option>
                                         <option value="">19:00</option>
                                     </select>
-                                <input type="checkbox" /> <span>모든 요일에 적용</span>
+                                <input class="all-day" type="checkbox" id="all-day" style="margin-top: 9px;"/> <span >모든 요일에 적용</span>
                             </td>
                         </tr>
                         <tr>
                             <td>월요일</td>
                             <td>
-                                <span>출근시간 : </span>
-                                    <select class="" name="">
+                                <span >출근시간 : </span>
+                                    <select class="day" id="day" name="">
                                         <option value="">09:00</option>
                                         <option value="">10:00</option>
                                     </select>
                                 <span>퇴근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">18:00</option>
                                         <option value="">19:00</option>
                                     </select>
@@ -166,12 +168,12 @@
                             <td>화요일</td>
                             <td>
                                 <span>출근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">09:00</option>
                                         <option value="">10:00</option>
                                     </select>
                                 <span>퇴근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">18:00</option>
                                         <option value="">19:00</option>
                                     </select>
@@ -181,12 +183,12 @@
                             <td>수요일</td>
                             <td>
                                 <span>출근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">09:00</option>
                                         <option value="">10:00</option>
                                     </select>
                                 <span>퇴근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day" id="day"name="">
                                         <option value="">18:00</option>
                                         <option value="">19:00</option>
                                     </select>
@@ -197,12 +199,12 @@
                             <td>목요일</td>
                             <td>
                                 <span>출근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">09:00</option>
                                         <option value="">10:00</option>
                                     </select>
                                 <span>퇴근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">18:00</option>
                                         <option value="">19:00</option>
                                     </select>
@@ -213,12 +215,12 @@
                             <td>금요일</td>
                             <td>
                                 <span>출근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">09:00</option>
                                         <option value="">10:00</option>
                                     </select>
                                 <span>퇴근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day" id="day"name="">
                                         <option value="">18:00</option>
                                         <option value="">19:00</option>
                                     </select>
@@ -229,12 +231,12 @@
                             <td>토요일</td>
                             <td>
                                 <span>출근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day"id="day" name="">
                                         <option value="">09:00</option>
                                         <option value="">10:00</option>
                                     </select>
                                 <span>퇴근시간 : </span>
-                                    <select class="" name="">
+                                    <select class="day" id="day"name="">
                                         <option value="">18:00</option>
                                         <option value="">19:00</option>
                                     </select>
@@ -242,18 +244,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>철야 퇴근시간</td>
+                            <td  >철야 퇴근시간</td>
                             <td>
-                                    <select class="" name="">
+                                    <select style="margin-top:7px;" class="" name="">
                                         <option value="">09:00</option>
                                         <option value="">10:00</option>
-                                    </select></br>
+                                    </select>
                                     <span class="">설정된 철야퇴근시간 전에 퇴근체크할 경우 전일 퇴근으로 처리됩니다.</span>
                             </td>
                         </tr>
                         <tr>
                             <td>출퇴근 시간 체크</td>
-                            <td>
+                            <td class="flex-justify flex">
                                     <select class="" name="">
                                         <option value="">없음</option>
                                         <option value="">비콘</option>
@@ -261,6 +263,9 @@
                                         <option value="">그룹웨어</option>
                                         <option value="">메신저</option>
                                     </select>
+                                    <span style="margin-right : 40px;">
+                                        <input type="checkbox" style="margin-top: 9px; margin-right: 2px;"/><span>출근체크 알림</span>
+                                    </span>
                             </td>
                         </tr>
                         <tr>
@@ -273,12 +278,13 @@
                             </td>
                         </tr>
                     </table>
+                    <div class="modal-bottom center m-t10">
+                        <button class="btn-on">저장</button>
+                        <button class="btn-off popup btn-close">닫기</button>
+                    </div>
                 </form>
                 </div>
-                <div class="modal-bottom center m-t10">
-                    <button class="btn-on">저장</button>
-                    <button class="btn-off popup btn-close">닫기</button>
-                </div> 
+                 
         </div>
     </div>
     <div class="page-wrap bg-gray">
