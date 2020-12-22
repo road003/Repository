@@ -39,7 +39,7 @@
 
             <div class="page-main-wrap flex flex-justify border-bottom">
                 <div class="page-left bg-white height40">
-                    <a href="grp_main.html"><h2 class="noto center font24 weight400" style="color: #5f6368;">관리자페이지</h2></a>
+                    <a href="${pageContext.request.contextPath}/"><h2 class="noto center font24 weight400" style="color: #5f6368;">관리자페이지</h2></a>
                 </div>
                 <div class="page-right bg-white height40">
                     <div class="page-info flex flex-justify">

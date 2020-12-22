@@ -42,7 +42,7 @@
 
             <div class="page-main-wrap flex flex-justify border-bottom">
                 <div class="page-left bg-white height40">
-                    <a href="${pageContext.request.contextPath}/main"><h2 class="noto center font24 weight400" style="color: #5f6368;">  관리자페이지</h2></a>
+                    <a href="${pageContext.request.contextPath}"><h2 class="noto center font24 weight400" style="color: #5f6368;">  관리자페이지</h2></a>
                 </div>
                 <div class="page-right bg-white height40">
                     <div class="page-info flex flex-justify">
@@ -59,7 +59,7 @@
 
                             <div class="pic" style="margin-top: 12px; padding-right: 22px;">
                                 <span class="user">
-                                    <img src="images/9.png" alt="" title="" />
+                                    <img src="${pageContext.request.contextPath}/images/9.png" alt="" title="" />
                                 </span>
                             </div>
                         </div>

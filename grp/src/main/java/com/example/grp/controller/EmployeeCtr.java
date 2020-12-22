@@ -11,7 +11,7 @@ public class EmployeeCtr {
 	
 	@RequestMapping("")
 	public String getEmployeeHome() {
-		return "/employee/employee_list";
+		return "employee/employee_list";
 	}
 	
 }
