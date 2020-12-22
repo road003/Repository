@@ -72,7 +72,7 @@
                                 <li class="top-menu close">
                                     <a><span>사내조직/연락처</span></a>
                                     <ul>
-                                        <li><a href="grp_member_list.html"><i class="fas fa-caret-right"></i>사원목록</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/employee/employee_list"><i class="fas fa-caret-right"></i>사원목록</a></li>
                                         <li><a href="grp_member_register.html"><i class="fas fa-caret-right"></i>사원등록</a></li>
                                         <li><a href="grp_member_chart.html"><i class="fas fa-caret-right"></i>조직도</a></li>
                                         <li><a href="grp_member_chart_register.html"><i class="fas fa-caret-right"></i>조직도 등록</a></li>
